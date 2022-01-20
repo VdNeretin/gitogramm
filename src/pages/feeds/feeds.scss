@@ -3,3 +3,38 @@
   display: flex;
   justify-content: space-between;
 }
+
+.posts{
+  &-container{
+    width: 979px;
+    margin: 0 auto;
+  }
+
+  &__item{
+    margin-bottom: 20px;
+  }
+}
+
+.menu{
+  &__list{
+    display: flex;
+    justify-content: start;
+  }
+
+  &__item{
+    margin-right: 10px;
+  }
+}
+
+.title{
+  margin-right: 800px;
+}
+
+.main__pg{
+  border-radius: 50%;
+}
+
+.home__main{
+  width: 30px;
+  height: 30px;
+}

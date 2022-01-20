@@ -1,12 +1,10 @@
 const path = require("path");
 const vueSrc= "./src";
 module.exports = {
-  publicPath: process.env.Node_EVN === "producrion" ? "/gitogramm/dist/" : "/",
+  publicPath: process.env.Node_EVN === "production" ? "/gitogramm/dist/" : "/",
   css: {
-    modules: true
+    requireModuleExtension: true
   },
-  runrimeCompiler: true,
-
   configureWebpack: {
     resolve: {
       alias: {

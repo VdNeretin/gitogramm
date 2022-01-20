@@ -40,6 +40,7 @@ export default {
 
 <style lang='scss' scoped>
 .user{
+  margin-top: 15px;
   display: flex;
   align-items: center;
   border-radius: 50%;

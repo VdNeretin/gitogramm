@@ -1,13 +1,11 @@
 <template>
   <div class="post">
-    My post components
     <div class="post__user">
       <user src="https://picsum.photos/300/300" name="user name"/>
     </div>
     <div class="post__card">
       <slot name="card" />
     </div>
-    toggler component
     <toggler @onToggle="clickToggle" />
     <div v-if="showCom">
       <ul class="post__comment comment__list">
