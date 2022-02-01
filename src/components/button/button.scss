@@ -1,14 +1,28 @@
+button::before {
+  content: attr(text);
+}
+
+button:hover::before {
+  content: attr(hover-text);
+}
+
 .c-button{
   display: flex;
-  width: 151px;
+  width: 270px;
   height: 44px;
-  background:#31AE54;
+  color: #FFFFFF;
+  font-weight: bold;
+
+  &:hover{
+    background: gray;
+  }
 }
 
 .theme-green{
   background:#31AE54 ;
 }
 
-.hover-text{
-  background: gray  ;
+.btn-text{
+  color: #FFFFFF;
+  font-weight: bold;
 }

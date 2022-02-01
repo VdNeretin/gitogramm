@@ -6,26 +6,26 @@
 
 <script>
 export default {
-  data() {
-    return{
+  data () {
+    return {
       active: false
     }
   },
   emits: ['onFinish'],
   methods: {
-    emitOnFinish() {
+    emitOnFinish () {
       this.$emit('onFinish')
     }
   },
   mounted () {
     this.$nextTick(() => {
-     this.active = true
+      this.active = true
     })
 
-    this.$refs.indicator.addEventListener('transitionend', this.emitOnFinish);
+    this.$refs.indicator.addEventListener('transitionend', this.emitOnFinish)
   },
-  beforeUnmount() {
-    this.$refs.indicator.removeEventListener('transitionend', this.emitOnFinish);
+  beforeUnmount () {
+    this.$refs.indicator.removeEventListener('transitionend', this.emitOnFinish)
   }
 }
 </script>

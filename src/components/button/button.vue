@@ -4,10 +4,8 @@
   {'hover-text': withHoverText}
   ]"
   :data-hover-text="hoverText"
+  text="Follow" hover-text="Unfollow"
   >
-    <span class="btn-text">
-      <slot></slot>
-    </span>
   </button>
 </template>
 
@@ -16,7 +14,7 @@ export default {
   name: 'Button',
   props: {
     hoverText: {
-      type:String
+      type: String
     }
   },
   computed: {
@@ -26,5 +24,4 @@ export default {
   }
 }
 </script>
-
 <style lang="scss" scoped src='./button.scss'></style>

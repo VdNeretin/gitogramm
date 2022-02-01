@@ -54,7 +54,9 @@
         />
       </li>
     </ul>
-    <pre>{{items}}</pre>
+  </div>
+  <div class="slide x-container">
+    <slide />
   </div>
 </template>
 
@@ -67,10 +69,11 @@ import { card } from '@/components/card'
 import { icon } from '@/icons'
 import * as api from '@/api'
 import { feed } from '@/components/feed'
+import { slide } from '@/components/slide'
 export default {
   name: 'feeds',
   components: {
-    topline, storyUserItem, post, card, icon, feed
+    topline, storyUserItem, post, card, icon, feed, slide
   },
   data () {
     return {
