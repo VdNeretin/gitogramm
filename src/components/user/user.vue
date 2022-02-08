@@ -1,27 +1,24 @@
 <template>
-  <div class='user'>
-    <avatar calss='user__avatar img' :avatar='src' :size='size'/>
+  <div class="user">
+    <Avatar class="user__avatar" :avatar="src" :size="size"/>
     <div>
-      <div class='user__name'>{{ name }}</div>
-      <div v-if='type' class='user__type'>{{ type }}</div>
+      <div class="user__name">{{ name }}</div>
+      <div v-if="type" class="user__type">{{ type }}</div>
     </div>
   </div>
 </template>
 
 <script>
-import { avatar as Avatar } from '@/components/avatar'
+import { avatar as Avatar } from '../../components/avatar'
+
 export default {
+  name: 'user',
   components: {
     Avatar
   },
   props: {
-    src: {
-      type: String,
-      default: 'https://picsum.photos/300/300'
-    },
     name: {
-      type: String,
-      default: 'John Doe'
+      type: String
     },
     type: {
       type: String,
@@ -38,33 +35,4 @@ export default {
 }
 </script>
 
-<style lang='scss' scoped>
-.user{
-  margin-top: 15px;
-  display: flex;
-  align-items: center;
-  border-radius: 50%;
-
-  &__name{
-    margin-bottom: 4px;
-    font-weight: bold;
-    font-size: 18px;
-  }
-
-  &__avatar{
-    display: block;
-     border-radius: 50%;
-    margin-right: 12px;
-  }
-
-  &__type{
-    font-size: 12px;
-    color: #9e9e9e;
-  }
-}
-
-.img{
-  display: block;
-   border-radius: 50%;
-}
-</style>
+<style lang="scss" scoped src="./user.scss"></style>

@@ -2,14 +2,14 @@
   <div class="c-comment">
     <p>
       <span class="username">{{ username }}</span>
-      {{text}}
+      {{ text }}
     </p>
   </div>
 </template>
 
 <script>
 export default {
-  name: 'Comment',
+  name: 'comment',
   props: {
     username: {
       type: String,

@@ -1,16 +1,30 @@
-.avatar{
+.c-story-user-item{
+  width: 92px;
+  height: 116px;
   display: block;
-  border-radius: 50%;
-  border: 2px solid #A6328D
 }
 
-.avatar:hover{
-  border: none;
+.avatar{
+  border-radius: 50%;
+  border: 3px solid #A6328D;
+  width: 92px;
+  height: 92px;display: flex;
+  justify-content: center;
+
+  &:hover{
+    border: none;
+  }
 }
 
 .img{
-  display: block;
   width: 80px;
   height: 80px;
   border-radius: 50%;
+  margin: auto;
+}
+
+
+.username{
+  display: block;
+  margin-top: 10px;
 }

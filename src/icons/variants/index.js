@@ -7,3 +7,5 @@ export { default as triangle } from './triangle.vue'
 export { default as stars } from './stars.vue'
 
 export { default as exit } from './exit.vue'
+
+export { default as logo } from './logo.vue'

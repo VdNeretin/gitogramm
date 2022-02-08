@@ -2,21 +2,25 @@
   <div class="topline">
     <topline>
       <template #headline>
-        <div class="menu">
-          <ul class="menu__list">
-            <li class="menu__item title">
-             <h1>Gitogram /</h1>
+        <div class="headline">
+          <div class="icon__logo">
+            <icon name="logo"/>
+          </div>
+          <ul class="menu__item">
+            <li class="menu__list">
+              <button class="home">
+                <icon name="home"/>
+              </button>
             </li>
-            <li class="menu__item">
-          <icon name="home" class="home__main" />
-            </li>
-            <li class="menu__item">
-            <div class="avatar">
-    <img class="avatar__img main__pg" src="https://picsum.photos/30/30" />
+            <li class="menu__list">
+              <div class="menu__avatar">
+                <img class="avatar__foto" src="https:/picsum.photos/300/300"/>
               </div>
             </li>
-            <li class="menu__item">
-          <icon name="exit" class="home__main" />
+            <li class="menu__list">
+              <button class="exit">
+                <icon name="exit"/>
+              </button>
             </li>
           </ul>
         </div>
@@ -24,7 +28,7 @@
       <template #content>
         <ul class="stories">
           <li class="stories-item" v-for="story in stories" :key="story.id">
-            <story-user-item
+             <storyUserItem
         :avatar="story.avatar"
         :username="story.username"
         @onPress="handlePress(story.id)"
@@ -34,65 +38,33 @@
       </template>
     </topline>
   </div>
-  <div class="posts-container">
-    <ul class="posts__list">
-      <li v-for="item, ndx in 5" :key="ndx" class="posts__item">
-        <post>
-          <template #card >
-            <card />
-          </template>
-        </post>
-      </li>
-    </ul>
-  </div>
-  <div class="x-container">
-    <ul class="list">
-      <li class="item" v-for="item in items" :key="item.id">
-        <feed
-        :feed="getFeedData(item)"
-        dark
+  <!-- <div>
+   <Data v-for="item in items" :key="item.id"
+        :title="item.name"
+        :description="item.description"
+        :username="item.owner.login"
+        :stars="item.stargazes_count"
         />
-      </li>
-    </ul>
-  </div>
-  <div class="slide x-container">
-    <slide />
-  </div>
+        </div> -->
 </template>
 
 <script>
-import { topline } from '../../components/topline'
 import { storyUserItem } from '../../components/storyUserItem'
+import { topline } from '../../components/topline'
 import stories from './data.json'
-import { post } from '@/components/post'
-import { card } from '@/components/card'
-import { icon } from '@/icons'
+import { icon } from '../../icons'
 import * as api from '@/api'
-import { feed } from '@/components/feed'
-import { slide } from '@/components/slide'
+// import { data as Data } from '../../components/data'
+
 export default {
   name: 'feeds',
   components: {
-    topline, storyUserItem, post, card, icon, feed, slide
+    topline, storyUserItem, icon
   },
   data () {
     return {
       stories,
-      shown: false,
       items: []
-    }
-  },
-  methods: {
-    toggle (isOpened) {
-      this.shown = isOpened
-    },
-    getFeedData (item) {
-      return {
-        title: item.name,
-        description: item.description,
-        username: item.owner.login,
-        stars: item.stargazers_count
-      }
     }
   },
   async created () {
@@ -105,7 +77,6 @@ export default {
     }
   }
 }
-
 </script>
 
 <style lang="scss" scoped src="./feeds.scss"></style>

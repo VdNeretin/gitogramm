@@ -1,40 +1,46 @@
 <template>
-  <div class="card">
-    <div class="card__title__wrap">
-      <h2 class="card__title"></h2>
+  <div class="card" v-for="item in items" :key="item.id">
+    <div class="card__title_wrap">
+      <h2 class="card__title">{{ title }}</h2>
     </div>
     <div class="card__desc">
-      Lorem ipsum dolor, sit amet consectetur adipisicing elit. Amet, perspiciatis?
+    <p v-if="text">{{ text }}</p>
     </div>
     <div class="card__stats">
-      <stats :stars="10" :forks="5"/>
+      <stats :stars="item.stargazers_count"
+       :forks="item.forks_count" />
     </div>
   </div>
 </template>
 
 <script>
-import { stats } from '@/components/stats'
+import { stats } from '../../components/stats'
+import * as api from '../../api'
+
 export default {
+  name: 'card',
   components: {
     stats
+  },
+  data () {
+    return {
+      items: []
+    }
+  },
+  props: {
+    title: String,
+    text: String
+  },
+  async created () {
+    try {
+      const { data } = await api.trandings.getTrendings()
+
+      this.items = data.items
+    } catch (error) {
+      console.log(error)
+    }
   }
 }
 </script>
 
-<style lang="scss" scoped>
-.card{
-background: #FFFFFF;
-border: 1px solid #F1F1F1;
-box-shadow: 0px 4px 40px rgba(0, 0, 0, 0.07);
-border-radius: 10px;
-padding: 24px 20px;
-
-&__title__wrap{
-  margin-bottom: 16px;
-}
-
-&__desc{
-  margin-bottom: 32px;
-}
-}
-</style>
+<style lang="scss" scoped src='./card.scss'></style>
