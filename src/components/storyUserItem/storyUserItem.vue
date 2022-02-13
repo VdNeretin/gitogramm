@@ -1,7 +1,7 @@
 <template>
   <button class="c-story-user-item" @click="$emit('onPress')">
     <div class="avatar">
-      <img :src="avatar" class="img" alt="username avatar" />
+      <img :src="src" class="img" alt="username avatar" />
     </div>
     <div class="username">{{ username }}</div>
   </button>
@@ -11,7 +11,7 @@
 export default {
   name: 'storyUserItem',
   props: {
-    avatar: {
+    src: {
       type: String,
       required: true
     },

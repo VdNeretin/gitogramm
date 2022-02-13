@@ -1,16 +1,24 @@
 <template>
-  <div class="post" v-for="item in items" :key="item.id">
+<div class="post-container">
+  <div class="post">
     <div class="post__user">
-        <user :name="item.owner.login"/>
+        <user
+        :username="username"
+        :src="src"
+        />
     </div>
     <div class="post__card">
       <slot name="card" />
-      <card :title="item.name"
-      :text="item.description"
+      <card
+      :title="title"
+      :description="description"
+      :stars="stars"
+      :forks="forks"
       />
     </div>
   <div class="feed">
     <feed />
+  </div>
   </div>
   </div>
 </template>
@@ -19,28 +27,13 @@
 import { user } from '../../components/user'
 import { card } from '../../components/card'
 import { feed } from '../../components/feed'
-import * as api from '../../api'
 
 export default {
   name: 'post',
   components: {
     user, card, feed
   },
-  props: ['name'],
-  data () {
-    return {
-      items: []
-    }
-  },
-  async created () {
-    try {
-      const { data } = await api.trandings.getTrendings()
-
-      this.items = data.items
-    } catch (error) {
-      console.log(error)
-    }
-  }
+  props: ['username', 'src', 'title', 'description', 'stars', 'forks']
 }
 </script>
 

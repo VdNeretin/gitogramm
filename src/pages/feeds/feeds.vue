@@ -27,10 +27,10 @@
       </template>
       <template #content>
         <ul class="stories">
-          <li class="stories-item" v-for="story in stories" :key="story.id">
+          <li v-for="item in items" :key="item.id">
              <storyUserItem
-        :avatar="story.avatar"
-        :username="story.username"
+        :src="item.owner.avatar_url"
+        :username="item.owner.login"
         @onPress="handlePress(story.id)"
         />
           </li>
@@ -38,14 +38,29 @@
       </template>
     </topline>
   </div>
-  <!-- <div>
-   <Data v-for="item in items" :key="item.id"
-        :title="item.name"
-        :description="item.description"
+  <div class="posts">
+  <div class="x-container">
+    <ul class="posts__list">
+      <li v-for="item in items" :key="item.id">
+        <post
         :username="item.owner.login"
-        :stars="item.stargazes_count"
-        />
-        </div> -->
+        :src="item.owner.avatar_url"
+        :repo-id="item.id"
+        :issues="item.issues"
+        :owner="item.owner.login"
+        :title="item.name"
+        :description="item.description || ''"
+        :stars="item.stargazers_count"
+        :forks="item.forks"
+        >
+        </post>
+      </li>
+    </ul>
+  </div>
+  </div>
+  <!-- <div>
+    <pre>{{ items }}</pre>
+  </div> -->
 </template>
 
 <script>
@@ -54,12 +69,13 @@ import { topline } from '../../components/topline'
 import stories from './data.json'
 import { icon } from '../../icons'
 import * as api from '@/api'
+import { post } from '../../components/post'
 // import { data as Data } from '../../components/data'
 
 export default {
   name: 'feeds',
   components: {
-    topline, storyUserItem, icon
+    topline, storyUserItem, icon, post
   },
   data () {
     return {

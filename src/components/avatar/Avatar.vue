@@ -1,13 +1,14 @@
 <template>
   <div class="avatar" :style="avatarStyle">
-    <img :src="avatar" alt="users avatar" class="avatar__img"/>
+    <img :src="src" alt="users avatar" class="avatar__img"/>
   </div>
 </template>
 
 <script>
 export default {
+  name: 'avatat',
   props: {
-    avatar: {
+    src: {
       type: String,
       required: true,
       default: 'https://picsum.photos/300/300'

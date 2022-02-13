@@ -1,8 +1,8 @@
 <template>
   <div class="user">
-    <Avatar class="user__avatar" :avatar="src" :size="size"/>
+    <Avatar class="user__avatar" :src="src" :size="size"/>
     <div>
-      <div class="user__name">{{ name }}</div>
+      <div class="user__name">{{ username }}</div>
       <div v-if="type" class="user__type">{{ type }}</div>
     </div>
   </div>
@@ -17,8 +17,9 @@ export default {
     Avatar
   },
   props: {
-    name: {
-      type: String
+    username: {
+      type: String,
+      default: 'John Doe'
     },
     type: {
       type: String,
@@ -27,6 +28,10 @@ export default {
     size: {
       type: String,
       default: 's'
+    },
+    src: {
+      type: String,
+      required: true
     }
   },
   setup (props) {

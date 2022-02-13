@@ -3,7 +3,7 @@
   <div class="posts-container">
     <ul class="posts__list">
       <li v-for="item, ndx in 1" :key="ndx" class="posts__item">
-        <post/>
+        <post />
       </li>
     </ul>
   </div>
