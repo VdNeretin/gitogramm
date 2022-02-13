@@ -2,9 +2,9 @@
   <div class="c-story-post-item" :class=" { active }">
     <div class="stories-container">
       <div class="header">
-        <!-- <div class="progress">
+        <div class="progress">
           <xProgress :active="active" @onFinish="$emit('onProgressFinish')"/>
-        </div> -->
+        </div>
         <div class="user">
           <user :username="data.username" :src="data.userAvatar" />
         </div>
@@ -37,7 +37,7 @@
 <script>
 import { user } from '../user'
 import { button } from '../button'
-// import { progress } from '../progress'
+import { progress } from '../progress'
 // import { icon } from '../../icons'
 // import { placeholder } from '../placeholder'
 
@@ -45,8 +45,8 @@ export default {
   name: 'StoryUserItem',
   components: {
     user,
-    xButton: button
-    // xProgress: progress
+    xButton: button,
+    xProgress: progress
     // icon,
     // placeholder
   },
