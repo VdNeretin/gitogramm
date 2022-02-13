@@ -58,19 +58,17 @@
     </ul>
   </div>
   </div>
-  <!-- <div>
+  <div>
     <pre>{{ items }}</pre>
-  </div> -->
+  </div>
 </template>
 
 <script>
-import { storyUserItem } from '../../components/storyUserItem'
-import { topline } from '../../components/topline'
-import stories from './data.json'
-import { icon } from '../../icons'
+import { storyUserItem } from '@/components/storyUserItem'
+import { topline } from '@/components/topline'
+import { icon } from '@/icons'
 import * as api from '@/api'
-import { post } from '../../components/post'
-// import { data as Data } from '../../components/data'
+import { post } from '@/components/post'
 
 export default {
   name: 'feeds',
@@ -79,7 +77,6 @@ export default {
   },
   data () {
     return {
-      stories,
       items: []
     }
   },

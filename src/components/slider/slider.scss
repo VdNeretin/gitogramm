@@ -1,0 +1,30 @@
+.container{
+  background: black;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.header{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.logo{
+  width: 174px;
+  height: 36px;
+  color: white;
+  margin-left: 121px;
+ margin-top: 44px;
+}
+
+.close__tab{
+  width: 22.5px;
+  height: 22.5px;
+  color: white;
+  margin-right: 121px;
+  margin-top: 44px;
+}
